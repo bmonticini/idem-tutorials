@@ -26,15 +26,15 @@
 
 ## Notes before you start
 
-The tutorial values only `idp.attribute.resolver.LDAP.exportAttributes.1` because it is valid, and will be used,  by both LDAP servers connected to the Shibboleth IdP.
+This tutorial covers the use case where user identities are replicated in two different ldap servers.
 
-The LDAP servers, in this example, provide the same set of attributes from two different machines.
+The property `idp.attribute.resolver.LDAP.exportAttributes.1` is the only one to be set because it will be used during the configuration of both LDAP servers.
 
-The value of `idp.attribute.resolver.LDAP.exportAttributes.2` have to be left empty because the attribute set provided by the `idp.attribute.resolver.LDAP.exportAttributes.1` value will be used also for the second `<DataConnector>`.
+The value of the property `idp.attribute.resolver.LDAP.exportAttributes.2` have to be left empty because the attributes list provided in the property `idp.attribute.resolver.LDAP.exportAttributes.1` is the only in use.
 
-If the second LDAP server connected to the Shibboleth IdP manage different attributes, it is needed to value `idp.attribute.resolver.LDAP.exportAttributes.2` with those attributes that are not already included by the first one.
+If the second LDAP server connected to the Shibboleth IdP manages different attributes, then the property `idp.attribute.resolver.LDAP.exportAttributes.2` must be set with the list of attributes not already included in the property `idp.attribute.resolver.LDAP.exportAttributes.1`. In that case the properties `idp.attribute.resolver.LDAP.exportAttributes.1` and `idp.attribute.resolver.LDAP.exportAttributes.2` will include a different set of attributes.
 
-The attributes listed in each `idp.attribute.resolver.LDAP.exportAttributes` properties have to be different.
+(ma che vuol dire? che se .2 viene impostata allora deve essere diversa da .1 ? Se si l'ho aggiunto al pezzo sopra) The attributes listed in each `idp.attribute.resolver.LDAP.exportAttributes` properties have to be different.
 
 ## OpenLDAP Case connected with bindSearchAuthenticator
 
